@@ -2,6 +2,7 @@ FROM centos:7
 LABEL project="Christian's Docker Test"
 LABEL maintainer="madriga1@msn.com"
 ENV SELPATH /opt/selenium
+ENV JARNAME selenium-server-standalone.jar
 #--------------------------------------------------------
 # Update the image with the latest packages (recommended)
 #--------------------------------------------------------
@@ -28,5 +29,5 @@ RUN useradd seluser \
 USER seluser
 WORKDIR $SELPATH
 RUN sudo chown seluser:seluser $SELPATH
-RUN  wget -q https://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar -O selenium-server-standalone.jar
-RUN ls -ltr
+RUN  wget -q https://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar -O $JARNAME
+RUN chmod 755 $JARNAME
