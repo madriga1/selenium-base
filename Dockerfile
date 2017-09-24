@@ -29,3 +29,4 @@ USER seluser
 WORKDIR $SELPATH
 RUN sudo chown seluser:seluser $SELPATH
 RUN  wget -q https://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar -O selenium-server-standalone.jar
+RUN ls -ltr
